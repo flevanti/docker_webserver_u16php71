@@ -135,6 +135,8 @@ RUN ln -s  /etc/php/7.1/mods-available/upload_size_limit.ini /etc/php/7.1/cli/co
 RUN ln -s  /etc/php/7.1/mods-available/upload_size_limit.ini /etc/php/7.1/apache2/conf.d/10-upload_size_limit.ini 
 
 
+RUN apt-get install -y php-mongodb 
+
 
 # Default command	
 CMD ["sh", "/root/start_services.sh"]
