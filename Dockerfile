@@ -108,8 +108,10 @@ RUN apt-get install libapache2-mod-php7.1
 # APACHE WEB SERVER CONF E MODS
 COPY ./start_files/apache/conf/ /etc/apache2/conf-enabled/
 COPY ./start_files/apache/mods/ /etc/apache2/mods-enabled/
-COPY ./start_files/apache/www_html_default/ /var/www/html/
+RUN mkdir /var/www/html/public
+COPY ./start_files/apache/www_html_default/ /var/www/html/public/
 RUN rm /var/www/html/index.html
+COPY ./start_files/apache/vhosts/ /etc/apache2/sites-enabled/
 
 #PHP7 CONF
 COPY ./start_files/php/ini/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini 
