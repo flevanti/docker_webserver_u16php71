@@ -78,17 +78,17 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 php composer-setup.php && \
 php -r "unlink('composer-setup.php');" && \
 mv composer.phar /usr/local/bin/composer && \
-echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> /root/.bashrc
+echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
 
 # ADD GIT COMPLETION IN BASH RC
-RUN echo '#GIT AUTOCOMPLETION' >> /root/.bashrc && \
-echo 'source /usr/share/bash-completion/completions/git' >> /root/.bashrc
+RUN echo '#GIT AUTOCOMPLETION' >> ~/.bashrc && \
+echo 'source /usr/share/bash-completion/completions/git' >> ~/.bashrc
 
 
 #AWS CLI
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
 unzip awscli-bundle.zip && \
-./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws&& \
+./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
 aws --version
 
 
