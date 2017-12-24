@@ -139,6 +139,7 @@ RUN ln -s  /etc/php/7.1/mods-available/upload_size_limit.ini /etc/php/7.1/apache
 
 RUN apt-get install -y php-mongodb iputils-ping
 RUN apt-get install -y screen
+COPY ./start_files/ubuntu/screenrc /root/.screenrc
 
 # Default command	
 CMD ["sh", "/root/start_services.sh"]
