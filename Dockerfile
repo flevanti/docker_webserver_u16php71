@@ -144,8 +144,7 @@ COPY ./start_files/ubuntu/screenrc /root/.screenrc
 RUN apt-get install ssmtp -y
 RUN echo "# configure ssmtp as a sendmail dummy wrapper" >> /etc/php/7.1/mods-available/sendmail.ini
 RUN echo "# you can configure /etc/ssmtp/ssmtp.conf for the smtp server or mailcatcher" >> /etc/php/7.1/mods-available/sendmail.ini
-
-RUN echo "sendmail_path = /usr/sbin/ssmtp -t" > /etc/php/7.1/mods-available/sendmail.ini
+RUN echo "sendmail_path = /usr/sbin/ssmtp -t" >> /etc/php/7.1/mods-available/sendmail.ini
 RUN phpenmod sendmail
 
 # Default command	
