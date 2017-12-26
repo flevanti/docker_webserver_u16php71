@@ -141,5 +141,9 @@ RUN apt-get install -y php-mongodb iputils-ping
 RUN apt-get install -y screen
 COPY ./start_files/ubuntu/screenrc /root/.screenrc
 
+RUN apt-get install ssmtp -y
+RUN echo "sendmail_path = /usr/sbin/ssmtp -t" > /etc/php/7.1/mods-available/sendmail.ini
+RUN phpenmod sendmail
+
 # Default command	
 CMD ["sh", "/root/start_services.sh"]
